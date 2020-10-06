@@ -25,7 +25,7 @@ fourth_order_coeffs = {
                          'Z4m4':1.5, 'Z4m2':3.0, 'Z40':2.00, 'Z42':1.0, 'Z44':0.2,
 }
 
-eigth_order_coeffs = {
+eighth_order_coeffs = {
                                                  'Z00':1.0,
                                             'Z1m1':0.0, 'Z11':0.0,
                                     'Z2m2':3.0, 'Z20':1.0, 'Z22':-1.5,
@@ -38,14 +38,16 @@ eigth_order_coeffs = {
 }
 
 fourth_order = zernike_expansion(R, T, fourth_order_coeffs)
-eigth_order = zernike_expansion(R, T, eigth_order_coeffs)
+eighth_order = zernike_expansion(R, T, eighth_order_coeffs)
 
 plt.figure()
 ax = plt.subplot(121, polar=True)
+ax.set_title('Fourth order expansion')
 ax.pcolor(T, R, fourth_order, cmap='RdBu', shading='auto')
 ax.set_yticks([]), ax.set_xticks([])
 ax = plt.subplot(122, polar=True)
-ax.pcolor(T, R, eigth_order, cmap='RdBu', shading='auto')
+ax.set_title('Eighth order expansion')
+ax.pcolor(T, R, eighth_order, cmap='RdBu', shading='auto')
 ax.set_yticks([]), ax.set_xticks([])
 plt.show()
 ```
