@@ -52,5 +52,4 @@ ax.set_yticks([]), ax.set_xticks([])
 plt.show()
 ```
 which outputs the following figure:
-
 <img src="docs/example.png">
