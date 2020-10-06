@@ -50,4 +50,5 @@ ax.set_yticks([]), ax.set_xticks([])
 plt.show()
 ```
 which outputs the following figure:
-!(docs/example.png)
+
+<img src="docs/example.png">
