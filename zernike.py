@@ -1,3 +1,7 @@
+#! /usr/bin/python
+# """ Methods to expand circular pupils in Zernike polynomial expansion """
+# __author__ = [pacosalces, ]
+
 import numpy as np
 from math import factorial as fact
 
@@ -27,7 +31,7 @@ def zernike_pol(rho, theta, n, m):
 
     amplitude = Norm(n, m) * R(rho, n, m) 
     if m < 0:
-        return amplitude * np.sin(m*theta)
+        return -amplitude * np.sin(m*theta)
     else:
         return amplitude * np.cos(m*theta)
     
@@ -63,11 +67,12 @@ if __name__ in '__main__':
     # Two lists of coefficients up to some order
 
     fourth_order_coeffs = {
-                                                     'Z00':1.0,
-                                                'Z1m1':0.0, 'Z11':0.0,
-                                        'Z2m2':3.0, 'Z20':1.0, 'Z22':-1.5,
-                                    'Z3m3':0.1, 'Z3m1':1.0, 'Z31':0.5, 'Z33':0.3,
-                             'Z4m4':1.5, 'Z4m2':3.0, 'Z40':2.00, 'Z42':1.0, 'Z44':0.2,
+                                                     'Z00':0.43,
+                                                'Z1m1':-0.08, 'Z11':0.,
+                                        'Z2m2':1.01, 'Z20':12.75, 'Z22':-9.89,
+                                    'Z3m3':0.056, 'Z3m1':0.145, 'Z31':0., 'Z33':0.,
+                             'Z4m4':-0.08, 'Z4m2':0.37, 'Z40':1.85, 'Z42':-0.06, 'Z44':-0.20,
+#                         'Z5m5':0.0, 'Z5m3':0.0, 'Z5m1':0.0, 'Z51':0.0, 'Z53':0.0, 'Z55':0.0
     }
 
     eighth_order_coeffs = {
@@ -88,7 +93,7 @@ if __name__ in '__main__':
     plt.figure()
     ax = plt.subplot(121, polar=True)
     ax.set_title('Fourth order expansion')
-    ax.pcolor(T, R, fourth_order, cmap='RdBu', shading='auto')
+    pcolorbar = ax.pcolor(T, R, fourth_order, cmap='RdBu', shading='auto')
     ax.set_yticks([]), ax.set_xticks([])
     ax = plt.subplot(122, polar=True)
     ax.set_title('Eighth order expansion')
