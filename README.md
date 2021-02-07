@@ -1,8 +1,7 @@
 # zernike
 Python-based zernike expansion calculator. 
 
-
-## Example
+## Example: evaluating pupil Zernike expansions
 
 By calling the methods in ```zernike.py``` you can evaluate the Zernike expansion over any desired unit circular aperture. Consider the example below (included in the script as well):
 
@@ -54,3 +53,15 @@ plt.show()
 which outputs the following figure:
 
 <img src="docs/example.png">
+
+## Example: fitting point-spread-function using lmfit
+
+By running the script ```fit_pupil.py``` you can run a least-squares minimization fit on actual point-spread-function (PSF) image expanded with a fourth-order Zernike polynomial. The output of the script yields the figures shown below;
+
+<img src="docs/fit_example.png">
+
+for the data, best fit, and residuals from left to right, as well as;
+
+<img src="docs/aberration_budget.png">
+
+showing the relative contribution of each aberration term on the PSF.
